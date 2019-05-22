@@ -920,10 +920,10 @@ static int kDragCenterContext;
     [self _regionChanged:mapView];
 
     if (zoomLevel < mapView.minZoomLevel) {
-      [self setCenterCoordinate:[mapView centerCoordinate] zoomLevel:mapView.minZoomLevel animated:TRUE mapView:mapView];
+      [self setCenterCoordinate:[mapView centerCoordinate] zoomLevel:mapView.minZoomLevel animated:FALSE mapView:mapView];
     }
     else if (zoomLevel > mapView.maxZoomLevel) {
-      [self setCenterCoordinate:[mapView centerCoordinate] zoomLevel:mapView.maxZoomLevel animated:TRUE mapView:mapView];
+      [self setCenterCoordinate:[mapView centerCoordinate] zoomLevel:mapView.maxZoomLevel animated:FALSE mapView:mapView];
     }
 
     // Don't send region did change events until map has
