@@ -236,7 +236,7 @@ public class OsmMapView extends MapView implements MapView.OnFirstLayoutListener
         double latSpan = bounds.getLongitudeSpan();
 
         if (center.getLatitude() > 85.0511287798068 || center.getLatitude() < -85.0511287798068 || 
-            (center.getLatitude() - (latSpan / 1.7)) < -85.0511287798068 || (center.getLatitude() + (latSpan / 1.7)) > 85.0511287798068
+            (center.getLatitude() - (latSpan / 1.5)) < -85.0511287798068 || (center.getLatitude() + (latSpan / 1.5)) > 85.0511287798068
         ) {
             return false;
         }
