@@ -164,9 +164,14 @@ public class OsmMapView extends MapView implements MapView.OnFirstLayoutListener
                 BoundingBox bounds = mapView.getBoundingBox();
                 IGeoPoint center = mapView.getMapCenter();
                 lastBoundsEmitted = bounds;
-                eventDispatcher.dispatchEvent(new OsmRegionChangeEvent(getId(), bounds, center, isTouchDown));
-                mapView.stopMonitoringRegion();
-                return true;
+
+                if (!isInLimits(center, bounds)) {
+                    return false;
+                } else {
+                    eventDispatcher.dispatchEvent(new OsmRegionChangeEvent(getId(), bounds, center, isTouchDown));
+                    mapView.stopMonitoringRegion();
+                    return true;
+                }                
             }
 
             @Override
@@ -175,9 +180,14 @@ public class OsmMapView extends MapView implements MapView.OnFirstLayoutListener
                 BoundingBox bounds = mapView.getBoundingBox();
                 IGeoPoint center = mapView.getMapCenter();
                 lastBoundsEmitted = bounds;
-                eventDispatcher.dispatchEvent(new OsmRegionChangeEvent(getId(), bounds, center, isTouchDown));
-                mapView.stopMonitoringRegion();
-                return true;
+
+                if (!isInLimits(center, bounds)) {
+                    return false;
+                } else {
+                    eventDispatcher.dispatchEvent(new OsmRegionChangeEvent(getId(), bounds, center, isTouchDown));
+                    mapView.stopMonitoringRegion();
+                    return true;
+                }                
             }
         }, 100));
 
@@ -220,6 +230,18 @@ public class OsmMapView extends MapView implements MapView.OnFirstLayoutListener
                 return super.onSingleTapConfirmed(e, mapView);
             }
         });
+    }
+
+    public boolean isInLimits(IGeoPoint center, BoundingBox bounds) {
+        double latSpan = bounds.getLongitudeSpan();
+
+        if (center.getLatitude() > 85.0511287798068 || center.getLatitude() < -85.0511287798068 || 
+            (center.getLatitude() - (latSpan / 1.7)) < -85.0511287798068 || (center.getLatitude() + (latSpan / 1.7)) > 85.0511287798068
+        ) {
+            return false;
+        }
+
+        return true;
     }
 
     public void setInitialRegion(ReadableMap initialRegion) {
@@ -565,7 +587,10 @@ public class OsmMapView extends MapView implements MapView.OnFirstLayoutListener
                                 LatLngBoundsUtils.BoundsAreDifferent(bounds, lastBoundsEmitted))) {
                     IGeoPoint center = OsmMapView.this.getMapCenter();
                     lastBoundsEmitted = bounds;
-                    eventDispatcher.dispatchEvent(new OsmRegionChangeEvent(getId(), bounds, center, true));
+
+                    if (isInLimits(center, bounds)) {
+                        eventDispatcher.dispatchEvent(new OsmRegionChangeEvent(getId(), bounds, center, isTouchDown));
+                    }
                 }
             }
 
