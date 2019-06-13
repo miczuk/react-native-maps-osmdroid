@@ -589,7 +589,7 @@ public class OsmMapView extends MapView implements MapView.OnFirstLayoutListener
                     lastBoundsEmitted = bounds;
 
                     if (isInLimits(center, bounds)) {
-                        eventDispatcher.dispatchEvent(new OsmRegionChangeEvent(getId(), bounds, center, isTouchDown));
+                        eventDispatcher.dispatchEvent(new OsmRegionChangeEvent(getId(), bounds, center, true));
                     }
                 }
             }
