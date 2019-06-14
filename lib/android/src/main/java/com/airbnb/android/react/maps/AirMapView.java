@@ -86,7 +86,7 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
   private CameraUpdate cameraToSet;
   private boolean showUserLocation = false;
   private boolean handlePanDrag = false;
-  private boolean moveOnMarkerPress = true;
+  private boolean moveOnMarkerPress = false;
   private boolean cacheEnabled = false;
   private boolean initialRegionSet = false;
   private boolean initialCameraSet = false;

@@ -217,7 +217,7 @@ public class AirMapManager extends ViewGroupManager<AirMapView> {
     view.enableMapLoading(loadingEnabled);
   }
 
-  @ReactProp(name = "moveOnMarkerPress", defaultBoolean = true)
+  @ReactProp(name = "moveOnMarkerPress", defaultBoolean = false)
   public void setMoveOnMarkerPress(AirMapView view, boolean moveOnPress) {
     view.setMoveOnMarkerPress(moveOnPress);
   }

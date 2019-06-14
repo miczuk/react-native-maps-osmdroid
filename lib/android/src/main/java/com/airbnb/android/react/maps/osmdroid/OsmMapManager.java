@@ -181,7 +181,7 @@ public class OsmMapManager extends ViewGroupManager<OsmMapView> {
 //    view.enableMapLoading(loadingEnabled);
 //  }
 
-  @ReactProp(name = "moveOnMarkerPress", defaultBoolean = true)
+  @ReactProp(name = "moveOnMarkerPress", defaultBoolean = false)
   public void setMoveOnMarkerPress(OsmMapView view, boolean moveOnPress) {
     view.setMoveOnMarkerPress(moveOnPress);
   }

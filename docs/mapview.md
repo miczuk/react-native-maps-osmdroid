@@ -37,7 +37,7 @@
 | `loadingEnabled` | `Boolean` | `false` | If `true` a loading indicator will show while the map is loading.
 | `loadingIndicatorColor` | `Color` | `#606060` | Sets loading indicator color, default to `#606060`.
 | `loadingBackgroundColor` | `Color` | `#FFFFFF` | Sets loading background color, default to `#FFFFFF`.
-| `moveOnMarkerPress` | `Boolean` | `true` | `Android only` If `false` the map won't move when a marker is pressed.
+| `moveOnMarkerPress` | `Boolean` | `false` | `Android only` If `false` the map won't move when a marker is pressed.
 | `legalLabelInsets` | `EdgeInsets` | | If set, changes the position of the "Legal" label link from the OS default. **Note:** iOS only.
 | `kmlSrc` | `string` | | The URL from KML file. **Note:** Google Maps and Markers only (either Android or iOS with `PROVIDER_GOOGLE`).
 
