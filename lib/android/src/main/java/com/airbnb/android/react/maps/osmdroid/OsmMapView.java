@@ -168,6 +168,7 @@ public class OsmMapView extends MapView implements MapView.OnFirstLayoutListener
                 if (!isInLimits(center, bounds)) {
                     return false;
                 } else {
+                    mapView.setScrollableAreaLimitDouble(new BoundingBox(85.05, 180, -85.05, -180));
                     eventDispatcher.dispatchEvent(new OsmRegionChangeEvent(getId(), bounds, center, isTouchDown));
                     mapView.stopMonitoringRegion();
                     return true;
@@ -184,6 +185,7 @@ public class OsmMapView extends MapView implements MapView.OnFirstLayoutListener
                 if (!isInLimits(center, bounds)) {
                     return false;
                 } else {
+                    mapView.setScrollableAreaLimitDouble(new BoundingBox(85.05, 180, -85.05, -180));
                     eventDispatcher.dispatchEvent(new OsmRegionChangeEvent(getId(), bounds, center, isTouchDown));
                     mapView.stopMonitoringRegion();
                     return true;
