@@ -1,4 +1,4 @@
-package com.airbnb.android.react.maps.osmdroid;
+package com.airbnb.android.react.maps;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -12,15 +12,19 @@ import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
+import com.google.android.gms.maps.model.ButtCap;
+import com.google.android.gms.maps.model.Cap;
+import com.google.android.gms.maps.model.RoundCap;
+import com.google.android.gms.maps.model.SquareCap;
 
 import java.util.Map;
 
 import javax.annotation.Nullable;
 
-public class OsmMapPolylineManager extends ViewGroupManager<OsmMapPolyline> {
+public class AirMapPolyline2Manager extends ViewGroupManager<AirMapPolyline2> {
   private final DisplayMetrics metrics;
 
-  public OsmMapPolylineManager(ReactApplicationContext reactContext) {
+  public AirMapPolyline2Manager(ReactApplicationContext reactContext) {
     super();
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
       metrics = new DisplayMetrics();
@@ -34,39 +38,59 @@ public class OsmMapPolylineManager extends ViewGroupManager<OsmMapPolyline> {
 
   @Override
   public String getName() {
-    return "OsmMapPolyline";
+    return "AirMapPolyline2";
   }
 
   @Override
-  public OsmMapPolyline createViewInstance(ThemedReactContext context) {
-    return new OsmMapPolyline(context);
+  public AirMapPolyline2 createViewInstance(ThemedReactContext context) {
+    return new AirMapPolyline2(context);
   }
 
   @ReactProp(name = "coordinates")
-  public void setCoordinate(OsmMapPolyline view, ReadableArray coordinates) {
+  public void setCoordinate(AirMapPolyline2 view, ReadableArray coordinates) {
     view.setCoordinates(coordinates);
   }
 
   @ReactProp(name = "strokeWidth", defaultFloat = 1f)
-  public void setStrokeWidth(OsmMapPolyline view, float widthInPoints) {
+  public void setStrokeWidth(AirMapPolyline2 view, float widthInPoints) {
     float widthInScreenPx = metrics.density * widthInPoints; // done for parity with iOS
     view.setWidth(widthInScreenPx);
   }
 
   @ReactProp(name = "strokeColor", defaultInt = Color.RED, customType = "Color")
-  public void setStrokeColor(OsmMapPolyline view, int color) {
+  public void setStrokeColor(AirMapPolyline2 view, int color) {
     view.setColor(color);
   }
 
   @ReactProp(name = "geodesic", defaultBoolean = false)
-  public void setGeodesic(OsmMapPolyline view, boolean geodesic) {
+  public void setGeodesic(AirMapPolyline2 view, boolean geodesic) {
     view.setGeodesic(geodesic);
   }
 
-//  @ReactProp(name = "zIndex", defaultFloat = 1.0f)
-//  public void setZIndex(AirMapPolyline2 view, float zIndex) {
-//    view.setZIndex(zIndex);
-//  }
+  @ReactProp(name = "zIndex", defaultFloat = 1.0f)
+  public void setZIndex(AirMapPolyline2 view, float zIndex) {
+    view.setZIndex(zIndex);
+  }
+
+  @ReactProp(name = "lineCap")
+  public void setlineCap(AirMapPolyline2 view, String lineCap) {
+    Cap cap = null;
+    switch (lineCap) {
+      case "butt":
+        cap = new ButtCap();
+        break;
+      case "round":
+        cap = new RoundCap();
+        break;
+      case "square":
+        cap = new SquareCap();
+        break;
+      default:
+        cap = new RoundCap();
+        break;
+    }
+    view.setLineCap(cap);
+  }
 
   @Override
   @Nullable

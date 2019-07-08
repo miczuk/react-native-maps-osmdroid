@@ -3,7 +3,7 @@ package com.airbnb.android.react.maps.osmdroid;
 import android.preference.PreferenceManager;
 import android.view.View;
 
-import com.airbnb.android.react.maps.SizeReportingShadowNode;
+import com.airbnb.android.react.maps.SizeReportingShadowNode2;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReadableArray;
@@ -100,28 +100,28 @@ public class OsmMapManager extends ViewGroupManager<OsmMapView> {
     }
 //
 //  @ReactProp(name = "mapType")
-//  public void setMapType(AirMapView view, @Nullable String mapType) {
+//  public void setMapType(AirMapView2 view, @Nullable String mapType) {
 //    int typeId = MAP_TYPES.get(mapType);
 //    view.map.setMapType(typeId);
 //  }
 //
 //  @ReactProp(name = "customMapStyleString")
-//  public void setMapStyle(AirMapView view, @Nullable String customMapStyleString) {
+//  public void setMapStyle(AirMapView2 view, @Nullable String customMapStyleString) {
 //    view.map.setMapStyle(new MapStyleOptions(customMapStyleString));
 //  }
 //
 //  @ReactProp(name = "showsUserLocation", defaultBoolean = false)
-//  public void setShowsUserLocation(AirMapView view, boolean showUserLocation) {
+//  public void setShowsUserLocation(AirMapView2 view, boolean showUserLocation) {
 //    view.setShowsUserLocation(showUserLocation);
 //  }
 //
 //  @ReactProp(name = "showsMyLocationButton", defaultBoolean = true)
-//  public void setShowsMyLocationButton(AirMapView view, boolean showMyLocationButton) {
+//  public void setShowsMyLocationButton(AirMapView2 view, boolean showMyLocationButton) {
 //    view.setShowsMyLocationButton(showMyLocationButton);
 //  }
 //
 //  @ReactProp(name = "toolbarEnabled", defaultBoolean = true)
-//  public void setToolbarEnabled(AirMapView view, boolean toolbarEnabled) {
+//  public void setToolbarEnabled(AirMapView2 view, boolean toolbarEnabled) {
 //    view.setToolbarEnabled(toolbarEnabled);
 //  }
 
@@ -133,27 +133,27 @@ public class OsmMapManager extends ViewGroupManager<OsmMapView> {
     }
 
 //  @ReactProp(name = "showsTraffic", defaultBoolean = false)
-//  public void setShowTraffic(AirMapView view, boolean showTraffic) {
+//  public void setShowTraffic(AirMapView2 view, boolean showTraffic) {
 //    view.map.setTrafficEnabled(showTraffic);
 //  }
 //
 //  @ReactProp(name = "showsBuildings", defaultBoolean = false)
-//  public void setShowBuildings(AirMapView view, boolean showBuildings) {
+//  public void setShowBuildings(AirMapView2 view, boolean showBuildings) {
 //    view.map.setBuildingsEnabled(showBuildings);
 //  }
 //
 //  @ReactProp(name = "showsIndoors", defaultBoolean = false)
-//  public void setShowIndoors(AirMapView view, boolean showIndoors) {
+//  public void setShowIndoors(AirMapView2 view, boolean showIndoors) {
 //    view.map.setIndoorEnabled(showIndoors);
 //  }
 //
 //  @ReactProp(name = "showsIndoorLevelPicker", defaultBoolean = false)
-//  public void setShowsIndoorLevelPicker(AirMapView view, boolean showsIndoorLevelPicker) {
+//  public void setShowsIndoorLevelPicker(AirMapView2 view, boolean showsIndoorLevelPicker) {
 //    view.map.getUiSettings().setIndoorLevelPickerEnabled(showsIndoorLevelPicker);
 //  }
 //
 //  @ReactProp(name = "showsCompass", defaultBoolean = false)
-//  public void setShowsCompass(AirMapView view, boolean showsCompass) {
+//  public void setShowsCompass(AirMapView2 view, boolean showsCompass) {
 //  }
 
     @ReactProp(name = "scrollEnabled", defaultBoolean = false)
@@ -172,12 +172,12 @@ public class OsmMapManager extends ViewGroupManager<OsmMapView> {
     }
 
 //  @ReactProp(name = "cacheEnabled", defaultBoolean = false)
-//  public void setCacheEnabled(AirMapView view, boolean cacheEnabled) {
+//  public void setCacheEnabled(AirMapView2 view, boolean cacheEnabled) {
 //    view.setCacheEnabled(cacheEnabled);
 //  }
 //
 //  @ReactProp(name = "loadingEnabled", defaultBoolean = false)
-//  public void setLoadingEnabled(AirMapView view, boolean loadingEnabled) {
+//  public void setLoadingEnabled(AirMapView2 view, boolean loadingEnabled) {
 //    view.enableMapLoading(loadingEnabled);
 //  }
 
@@ -187,13 +187,13 @@ public class OsmMapManager extends ViewGroupManager<OsmMapView> {
   }
 
 //  @ReactProp(name = "loadingBackgroundColor", customType = "Color")
-//  public void setLoadingBackgroundColor(AirMapView view, @Nullable Integer
+//  public void setLoadingBackgroundColor(AirMapView2 view, @Nullable Integer
 // loadingBackgroundColor) {
 //    view.setLoadingBackgroundColor(loadingBackgroundColor);
 //  }
 //
 //  @ReactProp(name = "loadingIndicatorColor", customType = "Color")
-//  public void setLoadingIndicatorColor(AirMapView view, @Nullable Integer loadingIndicatorColor) {
+//  public void setLoadingIndicatorColor(AirMapView2 view, @Nullable Integer loadingIndicatorColor) {
 //    view.setLoadingIndicatorColor(loadingIndicatorColor);
 //  }
 
@@ -321,7 +321,7 @@ public class OsmMapManager extends ViewGroupManager<OsmMapView> {
     public LayoutShadowNode createShadowNodeInstance() {
         // A custom shadow node is needed in order to pass back the width/height of the map to the
         // view manager so that it can start applying camera moves with bounds.
-        return new SizeReportingShadowNode();
+        return new SizeReportingShadowNode2();
     }
 
     @Override

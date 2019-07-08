@@ -3,7 +3,7 @@ package com.airbnb.android.react.maps.osmdroid;
 import android.graphics.Color;
 import android.view.View;
 
-import com.airbnb.android.react.maps.SizeReportingShadowNode;
+import com.airbnb.android.react.maps.SizeReportingShadowNode2;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.common.MapBuilder;
@@ -68,12 +68,12 @@ public class OsmMapMarkerManager extends ViewGroupManager<OsmMapMarker> {
     // `anchor` property  and `calloutAnchor` instead.  Perhaps some work could be done
     // to normalize iOS and android to use just one of the systems.
 //    @ReactProp(name = "centerOffset")
-//    public void setCenterOffset(AirMapMarker view, ReadableMap map) {
+//    public void setCenterOffset(AirMapMarker2 view, ReadableMap map) {
 //
 //    }
 //
 //    @ReactProp(name = "calloutOffset")
-//    public void setCalloutOffset(AirMapMarker view, ReadableMap map) {
+//    public void setCalloutOffset(AirMapMarker2 view, ReadableMap map) {
 //
 //    }
 
@@ -97,7 +97,7 @@ public class OsmMapMarkerManager extends ViewGroupManager<OsmMapMarker> {
     public void setImage(OsmMapMarker view, @Nullable String source) {
         view.setImage(source);
     }
-//    public void setImage(AirMapMarker view, ReadableMap image) {
+//    public void setImage(AirMapMarker2 view, ReadableMap image) {
 //        view.setImage(image);
 //    }
 
@@ -126,7 +126,7 @@ public class OsmMapMarkerManager extends ViewGroupManager<OsmMapMarker> {
 
 //  @Override
 //  @ReactProp(name = "zIndex", defaultFloat = 0.0f)
-//  public void setZIndex(AirMapMarker view, float zIndex) {
+//  public void setZIndex(AirMapMarker2 view, float zIndex) {
 //    super.setZIndex(view, zIndex);
 //    int integerZIndex = Math.round(zIndex);
 //    view.setZIndex(integerZIndex);
@@ -204,7 +204,7 @@ public class OsmMapMarkerManager extends ViewGroupManager<OsmMapMarker> {
         // we use a custom shadow node that emits the width/height of the view
         // after layout with the updateExtraData method. Without this, we can't generate
         // a bitmap of the appropriate width/height of the rendered view.
-        return new SizeReportingShadowNode();
+        return new SizeReportingShadowNode2();
     }
 
     @Override

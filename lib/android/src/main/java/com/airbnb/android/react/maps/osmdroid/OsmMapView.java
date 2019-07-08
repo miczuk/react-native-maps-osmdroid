@@ -625,16 +625,16 @@ public class OsmMapView extends MapView implements MapView.OnFirstLayoutListener
         @Override
         public boolean onMarkerClick(Marker marker, MapView mapView) {
             WritableMap event;
-            OsmMapMarker airMapMarker = markerMap.get(marker);
+            OsmMapMarker AirMapMarker2 = markerMap.get(marker);
 
             event = makeClickEventData(marker.getPosition());
             event.putString("action", "marker-press");
-            event.putString("id", airMapMarker.getIdentifier());
+            event.putString("id", AirMapMarker2.getIdentifier());
             manager.pushEvent(context, OsmMapView.this, "onMarkerPress", event);
 
             event = makeClickEventData(marker.getPosition());
             event.putString("action", "marker-press");
-            event.putString("id", airMapMarker.getIdentifier());
+            event.putString("id", AirMapMarker2.getIdentifier());
             manager.pushEvent(context, markerMap.get(marker), "onPress", event);
 
             marker.showInfoWindow();

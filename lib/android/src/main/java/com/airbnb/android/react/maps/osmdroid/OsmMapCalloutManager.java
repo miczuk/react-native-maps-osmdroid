@@ -1,6 +1,6 @@
 package com.airbnb.android.react.maps.osmdroid;
 
-import com.airbnb.android.react.maps.SizeReportingShadowNode;
+import com.airbnb.android.react.maps.SizeReportingShadowNode2;
 import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.LayoutShadowNode;
 import com.facebook.react.uimanager.ThemedReactContext;
@@ -39,7 +39,7 @@ public class OsmMapCalloutManager extends ViewGroupManager<OsmMapCallout> {
         // we use a custom shadow node that emits the width/height of the view
         // after layout with the updateExtraData method. Without this, we can't generate
         // a bitmap of the appropriate width/height of the rendered view.
-        return new SizeReportingShadowNode();
+        return new SizeReportingShadowNode2();
     }
 
     @Override
