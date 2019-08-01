@@ -928,7 +928,7 @@ static int kDragCenterContext;
 
     // Don't send region did change events until map has
     // started rendering, as these won't represent the final location
-    if (mapView.hasStartedRendering) {
+    if (!mapView.hasStartedRendering) {
         [self _emitRegionChangeEvent:mapView continuous:NO];
     };
 
