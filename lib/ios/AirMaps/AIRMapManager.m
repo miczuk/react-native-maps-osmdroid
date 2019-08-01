@@ -926,11 +926,7 @@ static int kDragCenterContext;
       [self setCenterCoordinate:[mapView centerCoordinate] zoomLevel:mapView.maxZoomLevel animated:FALSE mapView:mapView];
     }
 
-    // Don't send region did change events until map has
-    // started rendering, as these won't represent the final location
-    if (!mapView.hasStartedRendering) {
-        [self _emitRegionChangeEvent:mapView continuous:NO];
-    };
+    [self _emitRegionChangeEvent:mapView continuous:NO];
 
     mapView.pendingCenter = mapView.region.center;
     mapView.pendingSpan = mapView.region.span;
