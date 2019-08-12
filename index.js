@@ -6,9 +6,11 @@ export { default as Polyline } from './lib/components/MapPolyline.js';
 export { default as Polygon } from './lib/components/MapPolygon.js';
 export { default as Circle } from './lib/components/MapCircle.js';
 export { default as UrlTile } from './lib/components/MapUrlTile.js';
+export { default as FileTile } from './lib/components/MapFileTile.js';
 export { default as LocalTile } from './lib/components/MapLocalTile.js';
 export { default as Callout } from './lib/components/MapCallout.js';
 export { default as AnimatedRegion } from './lib/components/AnimatedRegion.js';
+export { default as Geojson } from './lib/components/Geojson.js';
 
 export { Marker, Overlay };
 export { Animated, MAP_TYPES, ProviderPropType };
